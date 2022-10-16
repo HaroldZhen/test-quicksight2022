@@ -5,15 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AWS QuickSight</title>
+  <script src="https://unpkg.com/amazon-quicksight-embedding-sdk@1.20.0/dist/quicksight-embedding-js-sdk.min.js"></script>
+<script type="text/javascript">
+  var dashboard;
+
+  function embedDashboard() {
+      var containerDiv = document.getElementById("embeddingContainer");
+      var options = {
+          // replace this dummy url with the one generated via embedding API
+          url: "https://ap-northeast-1.quicksight.aws.amazon.com/embed/4f6dabb90bd2457cb6923094e5ba079b/dashboards/fa858e3f-a48b-43db-bfee-a453a2255a69?isauthcode=true&identityprovider=quicksight&code=AYABeLgq6m2flVv2-4PcePvUHrQAAAABAAdhd3Mta21zAFBhcm46YXdzOmttczphcC1ub3J0aGVhc3QtMTozNjcwOTQ1NjE4OTQ6a2V5LzkyZDU3MjEzLTc0MjItNGNhOC1iYWZiLTg2MDFjNGZkODgyNwC4AQIBAHh19lpIdHJLvWmpW7433A8711o_o_2vfnBuxyXbJJdfkwEh7cKtDCV7GVI_X7agsYdlAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMJzmizjnsNzmlXGjcAgEQgDsCs7EOx8f4Cv1E073KDblRaNGJMMoYyq-OtgDu_YypawPuwXrIDvQtNtUHNruOGUcPCxTC8oyY-o5lAQIAAAAADAAAEAAAAAAAAAAAAAAAAADF-sZwZV6clKdlmsQT14af_____wAAAAEAAAAAAAAAAAAAAAEAAACeSIDb6HYkQOOjRkC-8jQ2EximP9RniI-PWdAN_Rm97ntYH6__c_SLxXyNEuzJKdMu0At4WGci5-yjbFwtOtzQLOUHSUPykCQ-lm1GukpPo9F--I8xk8myuMlfj6ezjJEBcZCZL13lS6vkUjZw19KaYZiljRsBbt5OoIZ90rvEd7DC_qiUkquZjiRvWkpE-QMtS37qGKsurlGkZzLzqbSfpkooDlKHt7BpLxcN9p6h",  
+          container: containerDiv,
+          scrolling: "no",
+          height: "700px",
+          width: "1000px",
+          footerPaddingEnabled: true
+      };
+      dashboard = QuickSightEmbedding.embedDashboard(options);
+  }
+</script>
 </head>
-<body>
-  <h1>Hello QuickSight</h1>
-  <div>
-    <iframe
-        width="960"
-        height="720"
-        src="https://us-west-2.quicksight.aws.amazon.com/sn/embed/share/accounts/457102478958/dashboards/fa858e3f-a48b-43db-bfee-a453a2255a69?directory_alias=haroldzhen531">
-    </iframe>
-  </div>
+<body onload="embedDashboard()">
+  <div id="embeddingContainer"></div>
 </body>
 </html>
